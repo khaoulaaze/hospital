@@ -1,5 +1,4 @@
 package ma.groupe1.hospital;
-
 import ma.groupe1.hospital.entities.*;
 import ma.groupe1.hospital.repositories.ConsultationRepository;
 import ma.groupe1.hospital.repositories.MedecinRepository;
@@ -13,21 +12,17 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Date;
 import java.util.stream.Stream;
-
 @SpringBootApplication
 public class HospitalApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(HospitalApplication.class, args);
 	}
-
 	@Bean
 	CommandLineRunner start(HospitalService hospitalService,
 							PatientRepository patientRepository,
 							RendezVousRepository rendezVousRepository,
 							ConsultationRepository consultationRepository,
 							MedecinRepository medecinRepository){
-
 		return args -> {
 			Stream.of("Aya","Hafsa","Khaoula")
 					.forEach(name -> {hospitalService.savePatient(
